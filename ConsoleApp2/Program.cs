@@ -17,8 +17,8 @@
             }
 
             if (rnd.Next(1) > guess)
-            { 
-                Console.WriteLine("Too high...")
+            {
+                Console.WriteLine("Too high...");
             }
 
             else
