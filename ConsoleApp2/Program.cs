@@ -8,10 +8,13 @@
 
             int randomNumber = rnd.Next(1, 101);
             int guess = 0;
+            int guesses = 0;
 
-            Console.WriteLine("Guess a number between 1-100");
+            Console.WriteLine("Guess a number between 1-100:");
+            int.TryParse(Console.ReadLine(), out guess);
+           
 
-            if (rnd.Next(1) == guess)
+            if (randomNumber == guess)
             {
                 Console.WriteLine("Correct! You win!");
             }
@@ -24,6 +27,8 @@
             else
             { 
                 Console.WriteLine("Too low...");
+
+             
             }
 
         }
