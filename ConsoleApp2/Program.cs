@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp2
+﻿namespace HighLowGuessingGame
 {
     internal class Program
     {
@@ -19,7 +19,7 @@
                     Console.WriteLine("Invalid input. Please enter a number.");
                 }
 
-                if (guess < randomNumber)
+            if (guess < randomNumber)
             {
                 Console.WriteLine("Too low...", guess);
             }
