@@ -13,10 +13,13 @@
             {
 
             Console.WriteLine("Guess a number between 1-100:");
-            int.TryParse(Console.ReadLine(), out guess);
-           
             
-            if (guess < randomNumber)
+                while (!int.TryParse(Console.ReadLine(), out guess))
+                {
+                    Console.WriteLine("Invalid input. Please enter a number.");
+                }
+
+                if (guess < randomNumber)
             {
                 Console.WriteLine("Too low...", guess);
             }
