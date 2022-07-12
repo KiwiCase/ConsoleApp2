@@ -25,59 +25,58 @@
                     Console.WriteLine("Guess a number between 1-100:");
             
                 while (!int.TryParse(Console.ReadLine(), out guess))
-                {
+                    {
                     Console.WriteLine("Invalid input. Please enter a number.");
-                }
+                    }
 
                 if (guess < randomNumber)
-                {
+                    {
                     Console.WriteLine("Too low...", guess);
-                }
+                    }
 
                 if (guess > randomNumber)
-                {
+                    {
                     Console.WriteLine("Too high...", guess);
-                }
+                    }
+            
                 count++;
+            
                 while (count == 5)
-                {
+
+                    {
                     Console.WriteLine("Too many guesses! Press Y to start again or N to quit.");
                     response = Console.ReadLine().ToUpper();
 
-                        while (response.Any(x => !char.IsLetter(x)));
-                        { 
-                        Console.WriteLine("Please enter Y or N");
-                        }
-
                         if (response == "Y")
-                        {
+                            {
                             playAgain = true;
-                        }
+                            }
                         if (response == "N")
-                        {
+                            {
                             playAgain = false;
-                        }
+                            }
                     }
                 while (guess == randomNumber)
-                { 
+                    { 
                     Console.WriteLine("Correct! You win!");
+                    Console.WriteLine("------------------------------------");
                     Console.WriteLine("Press Y to play again or N to quit.");
                     response = Console.ReadLine().ToUpper();
 
                         if (response == "Y")
-                        {
+                            {
                             playAgain = true;
-                        }
+                            }
                         if (response == "N")
-                        {
+                            {
                             playAgain = false;
-                        }
+                            }   
+                    }
+
                 }
-                
-                }
-            
+
             }
-                    Console.WriteLine("OK then! Bye!");
+            Console.WriteLine("OK then! Bye!");
         }
     }
 }
