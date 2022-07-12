@@ -46,6 +46,11 @@
                     Console.WriteLine("Too many guesses! Press Y to start again or N to quit.");
                     response = Console.ReadLine().ToUpper();
 
+                        while (response.Any(x => !char.IsLetter(x)));
+                        {
+                            Console.WriteLine("Invalid input. Please press Y or N.");
+                        }
+
                         if (response == "Y")
                             {
                             playAgain = true;
