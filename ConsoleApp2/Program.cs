@@ -58,6 +58,7 @@
                         if (response == "N")
                             {
                             playAgain = false;
+                            break;
                             }
                     }
 
