@@ -41,8 +41,7 @@
             
                 count++;
             
-                while (count == 5)
-
+                if (count == 5)
                     {
                     Console.WriteLine("Too many guesses! Press Y to start again or N to quit.");
                     response = Console.ReadLine().ToUpper();
@@ -56,7 +55,8 @@
                             playAgain = false;
                             }
                     }
-                while (guess == randomNumber)
+
+                if (guess == randomNumber)
                     { 
                     Console.WriteLine("Correct! You win!");
                     Console.WriteLine("------------------------------------");
