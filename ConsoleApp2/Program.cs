@@ -39,20 +39,26 @@
                     Console.WriteLine("Too high...", guess);
                 }
                 count++;
-                if (count == 5)
+                while (count == 5)
                 {
                     Console.WriteLine("Too many guesses! Press Y to start again or N to quit.");
                     response = Console.ReadLine().ToUpper();
+
+                        while (response.Any(x => !char.IsLetter(x)));
+                        { 
+                        Console.WriteLine("Please enter Y or N");
+                        }
+
                         if (response == "Y")
                         {
                             playAgain = true;
                         }
-                        else
+                        if (response == "N")
                         {
                             playAgain = false;
                         }
                     }
-                if (guess == randomNumber)
+                while (guess == randomNumber)
                 { 
                     Console.WriteLine("Correct! You win!");
                     Console.WriteLine("Press Y to play again or N to quit.");
@@ -62,7 +68,7 @@
                         {
                             playAgain = true;
                         }
-                        else
+                        if (response == "N")
                         {
                             playAgain = false;
                         }
@@ -71,7 +77,7 @@
                 }
             
             }
-                    Console.WriteLine("What a scardee cat! Bye!");
+                    Console.WriteLine("OK then! Bye!");
         }
     }
 }
