@@ -66,6 +66,7 @@
                     if (response == "Y")
                     {
                         playAgain = true;
+                        count = 0;
                     }
                     else break;
                 }
