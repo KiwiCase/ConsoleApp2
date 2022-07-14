@@ -10,7 +10,6 @@
             var count = 0;
             String response;
 
-
             while (guess != randomNumber)
             {
 
@@ -31,19 +30,6 @@
                     Console.WriteLine("Too high...", guess);
                 }
 
-                guess++;
-
-                if (count == 5)
-                {
-                    Console.WriteLine("Too many guesses! Press Y to start again or N to quit.");
-                    response = Console.ReadLine().ToUpper();
-
-                    if (response == "Y")
-                    {
-                        count = 0;
-                    }
-                }
-
                 if (guess == randomNumber)
                 {
                     Console.WriteLine("Correct! You win!");
@@ -55,11 +41,23 @@
                     {
                         count = 0;
                     }
-                    else break;
+                    else Console.WriteLine("OK then! Bye!");
+                }
+                count++;
+
+                if (count == 6)
+                {
+                    Console.WriteLine("Too many guesses! Press Y to start again or N to quit.");
+                    response = Console.ReadLine().ToUpper();
+
+                    if (response == "Y")
+                    {
+                        count = 0;
+                    }
+                    else Console.WriteLine("OK then! Bye!"); break;
                 }
             }
-
-            Console.WriteLine("OK then! Bye!");
+            
         }
 
     }
