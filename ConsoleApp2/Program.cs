@@ -6,55 +6,43 @@
         {
             Random rnd = new Random();
             int randomNumber = rnd.Next(100) + 1;
-            bool playAgain = true;
             int guess = 0;
             var count = 0;
             String response;
 
-            while (playAgain)
+
+            while (guess != randomNumber)
             {
-                guess = 0;
-                count = 0;
-                response = "";
-                randomNumber = rnd.Next(100) + 1;
 
+                Console.WriteLine("Guess a number between 1-100:");
 
-                while (guess != randomNumber)
+                while (!int.TryParse(Console.ReadLine(), out guess))
                 {
+                    Console.WriteLine("Invalid input. Please enter a number.");
+                }
 
-                    Console.WriteLine("Guess a number between 1-100:");
+                if (guess < randomNumber)
+                {
+                    Console.WriteLine("Too low...", guess);
+                }
 
-                    while (!int.TryParse(Console.ReadLine(), out guess))
+                if (guess > randomNumber)
+                {
+                    Console.WriteLine("Too high...", guess);
+                }
+
+                guess++;
+
+                if (count == 5)
+                {
+                    Console.WriteLine("Too many guesses! Press Y to start again or N to quit.");
+                    response = Console.ReadLine().ToUpper();
+
+                    if (response == "Y")
                     {
-                        Console.WriteLine("Invalid input. Please enter a number.");
-                    }
-
-                    if (guess < randomNumber)
-                    {
-                        Console.WriteLine("Too low...", guess);
-                    }
-
-                    if (guess > randomNumber)
-                    {
-                        Console.WriteLine("Too high...", guess);
-                    }
-
-                    count++;
-
-                    if (count == 5)
-                    {
-                        Console.WriteLine("Too many guesses! Press Y to start again or N to quit.");
-                        response = Console.ReadLine().ToUpper();
-
-                        if (response == "Y")
-                        {
-                            playAgain = true;
-                            count = 0;
-                        }
-                        else break;
+                        count = 0;
                     }
                 }
-                break;
 
                 if (guess == randomNumber)
                 {
@@ -65,13 +53,12 @@
 
                     if (response == "Y")
                     {
-                        playAgain = true;
                         count = 0;
                     }
                     else break;
                 }
-
             }
+
             Console.WriteLine("OK then! Bye!");
         }
 
