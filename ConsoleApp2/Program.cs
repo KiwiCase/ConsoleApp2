@@ -15,19 +15,19 @@
 
                 Console.WriteLine("Guess a number between 1-100:");
 
-                while (!int.TryParse(Console.ReadLine(), out guess))
+                if (!int.TryParse(Console.ReadLine(), out guess))
                 {
                     Console.WriteLine("Invalid input. Please enter a number.");
                 }
 
                 if (guess < randomNumber)
                 {
-                    Console.WriteLine("Too low...", guess);
+                    Console.WriteLine($"{guess} is too low...");
                 }
 
                 if (guess > randomNumber)
                 {
-                    Console.WriteLine("Too high...", guess);
+                    Console.WriteLine($"{guess} is too high...");
                 }
 
                 if (guess == randomNumber)
@@ -40,12 +40,17 @@
                     if (response == "Y")
                     {
                         count = 0;
+                        guess = 0;
                     }
-                    else Console.WriteLine("OK then! Bye!");
+                    else
+                    { 
+                        Console.WriteLine("OK then! Bye!");
+                        guess = randomNumber;
+                    }
                 }
                 count++;
 
-                if (count == 6)
+                if (count == 10)
                 {
                     Console.WriteLine("Too many guesses! Press Y to start again or N to quit.");
                     response = Console.ReadLine().ToUpper();
@@ -53,11 +58,16 @@
                     if (response == "Y")
                     {
                         count = 0;
+                        guess = 0;
                     }
-                    else Console.WriteLine("OK then! Bye!"); break;
+                    else
+                    {
+                        Console.WriteLine("OK then! Bye!");
+                        guess = randomNumber;
+                    }
                 }
             }
-            
+
         }
 
     }
