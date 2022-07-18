@@ -30,6 +30,11 @@
                     Console.WriteLine($"{guess} is too high...");
                 }
 
+                if (guess + 5 == randomNumber || guess - 5 == randomNumber)
+                {
+                    Console.WriteLine("You're close!");
+                }
+
                 if (guess == randomNumber)
                 {
                     Console.WriteLine("Correct! You win!");
@@ -43,11 +48,12 @@
                         guess = 0;
                     }
                     else
-                    { 
+                    {
                         Console.WriteLine("OK then! Bye!");
                         guess = randomNumber;
                     }
                 }
+
                 count++;
 
                 if (count == 10)
