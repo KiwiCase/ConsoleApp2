@@ -8,7 +8,7 @@
             int randomNumber = rnd.Next(100) + 1;
             int guess = 0;
             int count = 0;
-            int rCount = 5;
+            int rCount = 10;
             String response;
 
             while (guess != randomNumber)
@@ -19,6 +19,7 @@
                 while (!int.TryParse(Console.ReadLine(), out guess))
                 {
                     Console.WriteLine("Invalid input. Please enter a number.");
+                    Console.WriteLine("Guess a number between 1-100:");
                 }
 
                 if (guess < randomNumber)
@@ -31,10 +32,15 @@
                     Console.WriteLine($"{guess} is too high...");
                 }
 
+                if (guess - 5 < randomNumber && randomNumber < guess + 5 && guess != randomNumber)
+                {
+                    Console.WriteLine("You're close!");
+                }
+
                 if (guess == randomNumber)
                 {
                     Console.WriteLine("Correct! You win!");
-                    Console.WriteLine("------------------------------------");
+                    Console.WriteLine("-----------------------------------");
                     Console.WriteLine("Press Y to play again or N to quit.");
                     response = Console.ReadLine().ToUpper();
 
@@ -57,7 +63,7 @@
                     Console.WriteLine($"You have {rCount - count} guesses left");
                 }
 
-                if (count == 5)
+                if (count == 10)
                 {
                     Console.WriteLine("Too many guesses! Press Y to start again or N to quit.");
                     response = Console.ReadLine().ToUpper();
