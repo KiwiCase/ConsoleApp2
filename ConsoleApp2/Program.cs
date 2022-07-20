@@ -8,7 +8,7 @@
             int randomNumber = rnd.Next(100) + 1;
             int guess = 0;
             int count = 0;
-            int rCount = 10;
+            int rCount = 5;
             String response;
 
             while (guess != randomNumber)
@@ -63,7 +63,7 @@
                     Console.WriteLine($"You have {rCount - count} guesses left");
                 }
 
-                if (count == 10)
+                if (count == 5)
                 {
                     Console.WriteLine("Too many guesses! Press Y to start again or N to quit.");
                     response = Console.ReadLine().ToUpper();
