@@ -7,7 +7,8 @@
             Random rnd = new Random();
             int randomNumber = rnd.Next(100) + 1;
             int guess = 0;
-            var count = 0;
+            int count = 0;
+            int rCount = 5;
             String response;
 
             while (guess != randomNumber)
@@ -15,7 +16,7 @@
 
                 Console.WriteLine("Guess a number between 1-100:");
 
-                if (!int.TryParse(Console.ReadLine(), out guess))
+                while (!int.TryParse(Console.ReadLine(), out guess))
                 {
                     Console.WriteLine("Invalid input. Please enter a number.");
                 }
@@ -30,11 +31,6 @@
                     Console.WriteLine($"{guess} is too high...");
                 }
 
-                if (guess + 5 == randomNumber || guess - 5 == randomNumber)
-                {
-                    Console.WriteLine("You're close!");
-                }
-
                 if (guess == randomNumber)
                 {
                     Console.WriteLine("Correct! You win!");
@@ -44,19 +40,24 @@
 
                     if (response == "Y")
                     {
-                        count = 0;
-                        guess = 0;
+                        count = -1;
+                        randomNumber = rnd.Next(100) + 1;
                     }
                     else
                     {
                         Console.WriteLine("OK then! Bye!");
-                        guess = randomNumber;
+                        break;
                     }
                 }
 
                 count++;
 
-                if (count == 10)
+                if (count < rCount)
+                {
+                    Console.WriteLine($"You have {rCount - count} guesses left");
+                }
+
+                if (count == 5)
                 {
                     Console.WriteLine("Too many guesses! Press Y to start again or N to quit.");
                     response = Console.ReadLine().ToUpper();
@@ -64,12 +65,13 @@
                     if (response == "Y")
                     {
                         count = 0;
-                        guess = 0;
+                        randomNumber = rnd.Next(100) + 1;
+                        Console.WriteLine($"You have {rCount - count} guesses left");
                     }
                     else
                     {
                         Console.WriteLine("OK then! Bye!");
-                        guess = randomNumber;
+                        break;
                     }
                 }
             }
