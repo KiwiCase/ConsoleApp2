@@ -63,7 +63,7 @@
                     Console.WriteLine($"You have {rCount - count} guesses left");
                 }
 
-                if (count == 5)
+                if (count <= 5 && count >= 5)
                 {
                     Console.WriteLine("Too many guesses! Press Y to start again or N to quit.");
                     response = Console.ReadLine().ToUpper();
